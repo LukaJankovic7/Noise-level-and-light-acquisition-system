@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/css/main.css" rel="stylesheet">
+    <title>Home sensor system</title>
+</head>
+
+<body>
+    <div id="shader"></div>
+    <div class="wrapper">
+        <h1 class="title">Sensor display</h1>
+        
+        
+        
+        <div class="graphContainer">
+            <div class="graphEl" id="soundGraphWrapper">
+                <div class="flexContainer">
+                    <p id="soundGraphSettingsNotification">Settings saved</p>
+                    <div id="soundGraph" class="graph"></div>
+                    <div class="graphDescription">
+                        <span id="soundGraphMutationsButton" class="mutationsButton">&#9735;</span>
+                        <p>Global minimum: <span title="globalMinimum"></span></p>
+                        <p>Visible minimum: <span title="visibleMinimum"></span></p>
+                        <p>Global maximum: <span title="globalMaximum"></span></p>
+                        <p>Visible maximum: <span title="visibleMaximum"></span></p>
+                        <p>Global average: <span title="globalAverage"></span></p>
+                        <p>Visible average: <span title="visibleAverage"></span></p>
+                        <button id="clearGlobalSoundData">Clear global data</button>
+                        <table id="soundGraphMutationsList" class="mutationsList">
+                            <tr>
+                                <th>Date:</th>
+                                <th>Value:</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="graphSettings" id="soundGraphSettings">
+                    <label for="soundGraph_dotNumber">Time period[min]</label>
+                    <div><span>&lt;</span><input id="soundGraph_dotNumber" type="range" step="10" min="10" max="720" value="10"><span>&gt;</span></div>
+                    <output for="soundGraph_dotNumber" id="soundGraph_dotNumberOutput">10</output>
+                    <button class="applyChanges" name="sound">Apply changes</button>
+                </div>
+
+                <div class="expandGraph" id="expandSoundGraph">
+                    <div class="arrowDown"></div>
+                </div>
+            </div>
+
+            <div class="graphEl" id="lightGraphWrapper">
+                <div class="flexContainer">
+                    <p id="lightGraphSettingsNotification">Settings saved</p>
+                    <div id="lightGraph" class="graph"></div>
+                    <div class="graphDescription">
+                        <span id="lightGraphMutationsButton" class="mutationsButton">&#9735;</span>
+                        <p>Global minimum: <span title="globalMinimum"></span></p>
+                        <p>Visible minimum: <span title="visibleMinimum"></span></p>
+                        <p>Global maximum: <span title="globalMaximum"></span></p>
+                        <p>Visible maximum: <span title="visibleMaximum"></span></p>
+                        <p>Global average: <span title="globalAverage"></span></p>
+                        <p>Visible average: <span title="visibleAverage"></span></p>
+                        <button id="clearGlobalLightData">Clear global data</button>
+                        <table id="lightGraphMutationsList" class="mutationsList">
+                            <tr>
+                                <th>Date:</th>
+                                <th>Value:</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="graphSettings" id="lightGraphSettings">
+                    <label for="lightGraph_dotNumber">Time period[min]</label>
+                    <div><span>&lt;</span><input id="lightGraph_dotNumber" type="range" step="10" min="10" max="720" value="10"><span>&gt;</span></div>
+                    <output for="lightGraph_dotNumber" id="lightGraph_dotNumberOutput">10</output>
+                    <button class="applyChanges" name="light">Apply changes</button>
+                </div>
+
+                <div class="expandGraph" id="expandLightGraph">
+                    <div class="arrowDown"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="lightControl">
+            <img class="lightSwitch lightOn" src="../static/media/light_off.png">
+            <img class="lightSwitch " src="../static/media/light_on.png">
+            <label for="lightIntensity">Light intensity[%]</label>
+            <div><span>&lt;</span><input id="lightIntensity" type="range" step="5" min="0" max="100" value="100"><span>&gt;</span></div>
+            <output for="lightIntensity" id="lightIntensityOutput">100</output>
+
+        </div>
+    </div>
+    <script src='https://cdn.socket.io/4.2.0/socket.io.min.js' integrity='sha384-PiBR5S00EtOj2Lto9Uu81cmoyZqR57XcOna1oAuVuIEjzj0wpqDVfD0JA9eXlRsj' crossorigin='anonymous'></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="../static/js/characteristicValues.js"></script>
+    <script src="../static/js/charts.js"></script>
+    <script src="../static/js/main.js"></script>
+</body>
+
+
+</html>
